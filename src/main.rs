@@ -1,4 +1,4 @@
-use crate::garden::vegetables::Asparagus;
+use crate::garden::vegetables::{Asparagus, SayHello};
 
 pub mod garden;
 
@@ -50,6 +50,13 @@ fn main() {
 
     //Example importing module
     print_vegetable();
+
+    //Example creating class and using method
+    let second_one = Asparagus::new(&"second one".into(), 25, true, false);
+    say_hello_by_vegetable(&second_one);
+
+    let third_one = Asparagus::new(&"third".into(), 14, true, true);
+    say_hello_by_vegetable(&third_one);
 }
 
 
@@ -72,6 +79,10 @@ fn calculate_length(s: &String) -> usize {
 }
 
 fn print_vegetable() {
-    let plant = Asparagus {name: "my asparagus".to_string(), age: 2, is_green: true};
+    let plant = Asparagus::new(&"my asparagus".to_string(), 2, true, false);
     println!("I'm growing {:?}!", plant); //{:?} means print "plant" as string on debug mode. Otherwhise is not printable
+}
+
+fn say_hello_by_vegetable(vegetable: &Asparagus) {
+    println !("{}", vegetable.say_hello());
 }
